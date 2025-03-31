@@ -1,0 +1,8 @@
+---
+const { name, bgColor, textColor, icon } = Astro.props;
+---
+
+<div class={`flex items-center justify-center p-4 rounded-lg mb-4 ${bgColor} ${textColor}`}>
+  <img src={icon} alt={name + " logo"} class="w-8 h-8 mr-2" />
+  <span class="font-bold">{name}</span>
+</div>

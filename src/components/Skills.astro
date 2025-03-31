@@ -1,7 +1,22 @@
 
-<div class="w-full h-full bg-secondary rounded-xl ">
+---
+import { skills } from '../data/skills.js';
+import SkillItem from '../components/SkillItem.astro';
+---
 
-  <h1>Skills</h1>
 
+<div class="w-full h-full bg-secondary rounded-xl overflow-y-auto">
+
+  <div class="bg-secondary p-4 rounded-lg">
+    <h2 class="text-2xl font-bold mb-4 text-center">Habilidades</h2>
+    {skills.map(skill => (
+      <SkillItem
+        name={skill.name}
+        bgColor={skill.bgColor}
+        textColor={skill.textColor}
+        icon={skill.icon}
+      />
+    ))}
+  </div>
    
 </div>

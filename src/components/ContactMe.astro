@@ -1,7 +1,77 @@
+<div class="w-full h-full p-6 bg-secondary rounded-xl overflow-y-auto">
+  
+  <!-- Opción 1: Mostrar correo electrónico -->
+  <div>
+    <h2 class="text-2xl text-center font-bold">Contáctame</h2>
+    <p class="text-center">
+      <a href="mailto:estebancarcamou@gmail.com" class="text-cian hover:text-cian-hover font-bold text-sm transition-colors">
+        estebancarcamou@gmail.com
+      </a>
+    </p>
+  </div>
 
-<div class="w-full h-full bg-secondary rounded-xl ">
+  <!-- Separador visual -->
+  <div class="flex items-center my-2">
+    <div class="flex-grow border-t border-gray-300"></div>
+    <span class="mx-2 text-gray-500 font-semibold">O</span>
+    <div class="flex-grow border-t border-gray-300"></div>
+  </div>
 
-  <h1>ContactMe</h1>
-
-   
+  <!-- Opción 2: Formulario de contacto -->
+  <form id="whatsForm" class="space-y-4">
+    <div>
+      <label for="name" class="block text-sm font-semibold mb-1">Nombre completo</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        class="w-full p-2 border border-gray-300 rounded"
+      />
+    </div>
+    <div>
+      <label for="message" class="block text-sm font-semibold mb-1">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="3"
+        required
+        class="w-full p-2 border border-gray-300 rounded"
+      ></textarea>
+    </div>
+    <button
+      type="submit"
+      class="w-full bg-cian hover:bg-cian-hover text-sm font-bold py-1 px-2 rounded transition-colors">
+      Enviar
+    </button>
+  </form>
 </div>
+
+<script>
+  // Seleccionamos el formulario por su ID
+  const form = document.getElementById('whatsForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevenir el envío por defecto
+
+    // Obtener valores de los campos
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    // Construir el mensaje
+    const text = encodeURIComponent(
+      `Hola ! Soy ${name}\n\nDesde tu portafolio web te envío este mensaje:\n"${message}"`
+    );
+    
+    // Define el número al que se enviará el mensaje
+    // Debe estar en formato internacional sin el signo "+"
+    const whatsappNumber = '59587463'; // Reemplázalo por el número deseado
+
+    // Construir la URL para WhatsApp
+    const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${text}`;
+
+    // Abrir la URL en una nueva pestaña o ventana
+    window.open(url, '_blank');
+  });
+</script>
+
