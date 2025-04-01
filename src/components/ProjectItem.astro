@@ -1,0 +1,25 @@
+
+---
+const { nameProject, imageDemo, urlDemo, urlRepo } = Astro.props;
+---
+
+<div class="relative group w-50 h-30 overflow-hidden rounded-lg shadow-lg">
+  <!-- Imagen principal, se opaca al hacer hover -->
+  <img 
+    src={imageDemo} 
+    alt={nameProject + " logo"} 
+    class="w-full h-full object-cover transition duration-300 group-hover:opacity-50" 
+  />
+  
+  <!-- Overlay oculto que se muestra al hacer hover -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+    <span class="text-white font-bold text-xl mb-2">{nameProject}</span>
+    <a 
+      href={urlDemo !== "none" ? urlDemo : urlRepo}
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+    >
+      Ver más
+    </a>
+  </div>
+</div>
+
