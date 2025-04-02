@@ -1,0 +1,39 @@
+
+---
+
+import type { EducationItemData } from '../data/educationData.ts';
+const props = Astro.props as EducationItemData;
+
+const { titulo, periodo, descripcion, certificado, urlCertificado } = props;
+
+---
+
+
+<div class="relative mb-8">
+  <!-- Círculo posicionado sobre la línea -->
+  <div class="absolute -left-[10px] top-3 w-4 h-4 rounded-full bg-white"></div>
+  
+  <!-- Contenedor de la “burbuja” -->
+  <div class="ml-4 bg-primary p-4 rounded-lg shadow-lg max-w-md relative">
+    <!-- Cola de la burbuja (triángulo) -->
+    <div class="absolute -left-2.5 top-3 w-0 h-0 
+         border-t-8 border-b-8 border-r-8 
+         border-t-transparent border-b-transparent border-r-primary">
+    </div>
+
+    <h3 class="font-bold text-md mb-1">{titulo}</h3>
+    <span class="text-xs text-gris">{periodo}</span>
+    <p class="text-sm text-gris mt-2">{descripcion}</p>
+
+    {certificado && urlCertificado && (
+      <a
+        href={urlCertificado}
+        download
+        class="inline-block mt-4 bg-cian hover:bg-cian-hover text-white text-xs font-bold py-1 px-3 rounded transition-colors"
+      >
+        Ver Certificado
+      </a>
+    )}
+  </div>
+</div>
+

@@ -1,7 +1,27 @@
+---
+import { educationList } from '../data/educationData';
+import EducationItem from './EducationItem.astro';
+---
 
-<div class="w-full h-full bg-secondary rounded-xl ">
 
-  <h1>Education</h1>
 
-   
+<div class="w-full h-full bg-secondary rounded-xl p-6 overflow-y-auto">
+  <h2 class="text-2xl font-bold mb-6 text-center">Educación</h2>
+  
+  <!-- Contenedor que tendrá la línea vertical y los items -->
+  <div class="relative flex flex-col pl-3">
+    <!-- Línea vertical absoluta a la izquierda -->
+    <div class="absolute left-2 top-0 bottom-0 w-1 bg-cian-hover"></div>
+    
+    {educationList.map(item => (
+      <EducationItem
+        titulo={item.titulo}
+        periodo={item.periodo}
+        descripcion={item.descripcion}
+        certificado={item.certificado}
+        urlCertificado={item.urlCertificado}
+      />
+    ))}
+  </div>
 </div>
+
