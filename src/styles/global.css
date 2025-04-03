@@ -10,3 +10,12 @@
   --text-gris: #616877;
   --font-poppins: "Poppins", "sans-serif";
 }
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}

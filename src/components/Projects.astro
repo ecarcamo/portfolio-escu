@@ -4,10 +4,10 @@ import { projects } from '../data/projects.ts';
 import ProjectItem from '../components/ProjectItem.astro';
 ---
 
-<div class="w-full h-full bg-secondary rounded-xl flex flex-col lg:flex-row justify-start items-center overflow-y-hidden">
+<div class="w-full h-full bg-secondary rounded-xl flex flex-col lg:flex-row justify-start items-center overflow-y-hidden ">
   <h2 class="text-2xl font-bold text-center px-10">Proyectos</h2>
   <!-- Contenedor grid de una sola columna -->
-  <div class="w-full h-full overflow-y-auto">
+  <div class="w-full h-full overflow-y-scroll scrollbar-hidden">
     {projects.map(project => (
       <ProjectItem 
         nameProject={project.nameProject}
