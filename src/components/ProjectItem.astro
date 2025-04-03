@@ -1,25 +1,21 @@
 
 ---
-const { nameProject, imageDemo, urlDemo, urlRepo } = Astro.props;
+const { nameProject, imageDemo, urlDemo, urlRepo, description, languages } = Astro.props;
 ---
 
-<div class="relative group w-70 h-45 lg:w-60 lg:h-35 overflow-hidden rounded-lg shadow-lg">
-  <!-- Imagen principal, se opaca al hacer hover -->
+<div class="w-auto h-full flex ">
   <img 
     src={imageDemo} 
     alt={nameProject + " logo"} 
-    class="w-full h-full object-cover transition duration-200 group-hover:opacity-40" 
+    class="h-full w-[90%] object-cover p-5"
   />
-  
-  <!-- Overlay oculto que se muestra al hacer hover -->
-  <div class="absolute cursor-pointer inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
-    <span class="text-white font-bold text-sm mb-2">{nameProject}</span>
-    <a 
-      href={urlDemo !== "none" ? urlDemo : urlRepo}
-      target="_blank"
-      class="px-4 py-2 bg-cian text-white rounded hover:bg-cian-hover transition"
-    >
-      Ver más
-    </a>
+
+  <div class="w-full h-full flex flex-col justify-center items-center p-4">
+    <h1 class="text-center text-xl font-bold">{nameProject}</h1>
+    <p class="text-xs">{description}</p>
+    <div class="space-x-4">
+      <a class="inline-block mt-4 bg-cian hover:bg-cian-hover text-sm font-bold py-1 px-2 rounded transition-colors " href="">Ver Demo</a>
+      <a class="inline-block mt-4 bg-cian hover:bg-cian-hover text-sm font-bold py-1 px-2 rounded transition-colors" href="">Ver repo</a>
+    </div>
   </div>
 </div>
