@@ -3,16 +3,15 @@
 const { nameProject, imageDemo, urlDemo, urlRepo, description, languages } = Astro.props;
 ---
 
-<div class="w-auto h-full flex ">
+<div class="w-auto lg:h-full flex lg:flex-row flex-col ">
   <img 
     src={imageDemo} 
     alt={nameProject + " logo"} 
-    class="h-full w-[90%] object-cover rounded-3xl p-5"
+    class="w-full h-[20%] sm:w-[70%] mx-auto lg:h-full lg:w-[90%] object-cover rounded-3xl p-5"
   />
-
-  <div class="w-full h-full flex flex-col justify-center items-center p-4">
+  <div class="lg:w-full lg:h-full flex flex-col justify-center items-center p-4">
     <h1 class="text-center text-xl font-bold">{nameProject}</h1>
-    <p class="text-xs text-gris">{description}</p>
+    <p class="text-xs text-gris px-4 py-4 lg:px-0 lg:py-0">{description}</p>
     <div class="space-x-4">
       <a class="inline-block mt-4 bg-cian hover:bg-cian-hover text-sm font-bold py-1 px-2 rounded transition-colors " href="">Ver Demo</a>
       <a class="inline-block mt-4 bg-cian hover:bg-cian-hover text-sm font-bold py-1 px-2 rounded transition-colors" href="">Ver repo</a>
