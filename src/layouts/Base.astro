@@ -1,0 +1,115 @@
+---
+export interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+// ref background: https://bg.ibelick.com/
+
+---
+
+<script is:inline>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.effect-hover').forEach(contenedor => {
+      contenedor.style.transition = 'transform 0.3s ease-out, box-shadow 0.3s ease-out';
+
+      contenedor.addEventListener('mousemove', mouse => {
+        const elementArea = contenedor.getBoundingClientRect();
+        const positionX = mouse.clientX - elementArea.left;
+        const positionY = mouse.clientY - elementArea.top;
+        const centerX = elementArea.width / 2;
+        const centerY = elementArea.height / 2;
+
+        const rotateY = ((positionX - centerX) / centerX) * 4; // Menor giro
+        const rotateX = -((positionY - centerY) / centerY) * 4;
+
+        contenedor.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        contenedor.style.boxShadow = '0 0 20px 2px rgba(255, 255, 255, 0.15)';
+        contenedor.style.opacity = '1';
+      });
+
+      contenedor.addEventListener('mouseleave', () => {
+        contenedor.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        contenedor.style.boxShadow = 'none';
+        cont
+      });
+      
+    });
+
+
+    document.querySelectorAll('.opacity-20').forEach(div => {
+      div.addEventListener('mouseenter', () => {
+        div.classList.remove('opacity-20');
+        div.classList.add('opacity-100');
+      });
+      // No agregamos listener para mouseleave para que no vuelva
+    });
+  });
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+</head>
+<body class="relative h-screen w-screen bg-slate-950">
+  <div class="absolute inset-0 bg-pattern-personalized"></div>
+  
+  <div class="relative z-10 min-h-full">
+    <slot />
+  </div>
+
+</body>
+</html>
+
+
+
+<style is:global>
+  @import "tailwindcss";
+  @import '@fontsource-variable/onest';
+
+  @theme {
+    --color-primary: #4f4f4f;
+    --color-secondary: #ffffff;
+    --color-accent: #ff5722;
+    --color-background: #121212;
+    --color-paragraph: #5c5c5c;
+  }
+
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif; 
+    overflow: hidden;
+
+  }
+
+
+  h1, h2, h3, .titulo {
+    font-family: 'Onest Variable', sans-serif; 
+  }
+
+  .bg-pattern-personalized {
+    background-image:
+      linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
+      linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
+    background-size: 14px 24px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+  }
+  .effect-hover {
+    @apply bg-transparent transition-transform duration-300;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05); /* sombra base suave */
+  }
+
+
+</style>
