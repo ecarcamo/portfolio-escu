@@ -1,13 +1,19 @@
 ---
 ---
 
-<div class="flex flex-row gap-2 items-center justify-center h-full">
-    <div>
-        <img src="../../public/foto-perfil.png" alt="">
-    </div>
-    <div>
-        <h1 class="text-4xl text-center my-5">Hola! Que tal?</h1>
-        <p class="text-base" style="color: var(--color-paragraph)">Soy Esteban (escu), un apasionado de la tecnología y el desarrollo web. Me encanta crear soluciones innovadoras y eficientes que mejoren la experiencia del usuario y el desarrollo interno de un sistema.</p>
-        <p class="text-base" style="color: var(--color-paragraph)">En mi tiempo libre disfruto aprender nuevas tecnologías, explorar el mundo de la ciberseguridad y disfrutar de buena música</p>
-    </div>
+<div class="flex flex-col md:flex-row items-center justify-center h-full gap-8 px-6 py-8">
+  <img
+    src="../../foto-perfil.png"
+    alt="Foto de perfil"
+    class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 border-slate-800 bg-slate-900"
+  />
+  <div class="flex flex-col items-center md:items-start max-w-xl">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center md:text-left">Hola, soy Esteban</h1>
+    <p class="text-base md:text-lg text-gray-300 mb-2 text-center md:text-left">
+      Apasionado de la tecnología y el desarrollo web. Me encanta crear soluciones innovadoras y eficientes que mejoran la experiencia del usuario y optimizan sistemas internos.
+    </p>
+    <p class="text-base md:text-lg text-gray-400 text-center md:text-left">
+      En mi tiempo libre disfruto aprender nuevas tecnologías, explorar el mundo de la ciberseguridad y escuchar buena música.
+    </p>
+  </div>
 </div>
