@@ -1,29 +1,23 @@
 ---
-
+import trajectory from '../data/trayectory';
+import TrajectoryItem from './TrajectoryItem.astro';
 ---
 
-
-<div class="opacity-20 hover:opacity-100  transition-opacity duration-300 h-full w-full">
-    <h1 class="text-4xl text-center my-5">Trayectoria</h1>
-    <p class="text-base " style="color: var(--color-paragraph)" >Quiero presentarte todos los estudios que he llevado en el transcurso de mi vida, junto con los empleos que me han dado bastante experiencia.</p>
-    <section >
-        <ul class="list-disc pl-5 mt-4">
-            <li class="mb-2">
-                <strong>Ingeniería en Sistemas Computacionales</strong> - Universidad Tecnológica de León (2019 - 2023)
-                <p class="text-sm text-gray-500">Título obtenido: Ingeniero en Sistemas Computacionales</p>
-            </li>
-            <li class="mb-2">
-                <strong>Desarrollador Web Full Stack</strong> - Academia de Desarrollo Web (2020 - 2021)
-                <p class="text-sm text-gray-500">Certificación obtenida: Desarrollador Web Full Stack</p>
-            </li>
-            <li class="mb-2">
-                <strong>Prácticas Profesionales</strong> - Empresa XYZ (2022)
-                <p class="text-sm text-gray-500">Desarrollo de aplicaciones web y mantenimiento de bases de datos.</p>
-            </li>
-            <li class="mb-2">
-                <strong>Empleo Actual</strong> - Empresa ABC (2023 - Presente)
-                <p class="text-sm text-gray-500">Desarrollador Frontend, trabajando con tecnologías como React y Tailwind CSS.</p>
-            </li>
-        </ul>
-    </section>
+<div class="h-full w-full flex flex-col items-center justify-center px-2 py-8">
+  <h1 class="text-4xl font-bold text-center mb-8 text-white">Trayectoria</h1>
+  <div class="relative flex-1 min-h-0 overflow-y-auto pr-2">
+    <div class="relative h-full overflow-y-auto pr-2">
+      <ul class="space-y-10 relative">
+        {/* Línea vertical dinámica */}
+        <div class="absolute left-6 inset-y-0 w-1 h-full bg-gradient-to-b from-cyan-400/80 to-slate-800 rounded-full z-0"></div>
+        {trajectory.map(item => (
+          <TrajectoryItem 
+            title={item.title}
+            date={item.date}
+            description={item.description}
+          />
+        ))}
+      </ul>
+    </div>
+  </div>
 </div>
