@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import '@fontsource-variable/onest';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+h1, h2, h3, .titulo {
+  font-family: 'Onest Variable', sans-serif;
+}
+
+.bg-pattern-personalized {
+  background-image:
+    linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
+    linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
+  background-size: 14px 24px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+}
+.effect-hover {
+  background: transparent;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
