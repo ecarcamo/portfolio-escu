@@ -1,12 +1,21 @@
 ---
-
+import projectsData from '../data/projects.js';
+import ProjectItem from './ProjectItem.astro';
 ---
 
-
-<div class="opacity-20 hover:opacity-100  transition-opacity duration-300 h-full w-full">
-    <h1 class="text-4xl text-left my-5">Proyectos</h1>
-    <p class="text-base " style="color: var(--color-paragraph)" >Quiero presentarte todos los estudios que he llevado en el transcurso de mi vida, junto con los empleos que me han dado bastante experiencia.</p>
-    <section >
-       
-    </section>
+<div class="opacity-20 hover:opacity-100 transition-opacity duration-300 h-full w-full p-4">
+  <h1 class="text-4xl text-left my-5 text-white">Proyectos</h1>
+  <p class="text-base mb-4" style="color: var(--color-paragraph)">
+    Quiero presentarte algunos de los proyectos en los que he trabajado.
+  </p>
+  <div class="flex flex-col gap-6">
+    {projectsData.map(project => (
+      <ProjectItem 
+        name={project.name} 
+        image={project.image} 
+        description={project.description} 
+        repoUrl={project.repoUrl} 
+      />
+    ))}
+  </div>
 </div>
