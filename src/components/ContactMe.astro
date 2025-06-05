@@ -1,31 +1,130 @@
 ---
-
+const socialLinks = {
+  email: "estebancarcamou@gmail.com",
+  instagram: "est_cu.27",
+  linkedin: {
+    name: "Esteban Cárcamo",
+    url: "https://www.linkedin.com/in/esteban-c%C3%A1rcamo-726654197"
+  },
+  github: "ecarcamo"
+};
 ---
 
-
 <div class="opacity-20 hover:opacity-100 transition-opacity duration-300 h-full w-full p-4">
-  <h1 class="text-4xl text-left my-5">Contacto</h1>
-  <p class="text-base mb-4" style="color: var(--color-paragraph)">
-    Puedes contactarme a través de mi correo o mis redes sociales.
-  </p>
-  <ul class="list-none">
-    <li class="mb-2">
-      <strong>Correo:</strong>
-      <a href="mailto:estebancarcamou@gmail.com" class="text-blue-500 hover:underline">
-        estebancarcamou@gmail.com
-      </a>
-    </li>
-    <li class="mb-2">
-      <strong>Instagram:</strong>
-      <a href="https://www.instagram.com/tuusuario" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-        @tuusuario
-      </a>
-    </li>
-    <li>
-      <strong>LinkedIn:</strong>
-      <a href="https://www.linkedin.com/in/tuusuario" class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-        tuusuario
-      </a>
-    </li>
-  </ul>
+  <h1 class="text-4xl font-bold text-white mb-6">Contacto</h1>
+  <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm h-[calc(100%-5rem)] flex flex-col">
+    <p class="text-gray-300 text-lg mb-6">
+      ¿Interesado en colaborar? ¡Contáctame por cualquiera de estos medios!
+    </p>
+    
+    <div class="overflow-y-auto flex-1 pr-2 custom-scrollbar">
+      <ul class="space-y-4">
+        <!-- Email -->
+        <li class="flex items-center gap-4">
+          <div class="min-w-[24px]">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <a href={`mailto:${socialLinks.email}`} class="text-gray-300 hover:text-cyan-400 transition-colors">
+            {socialLinks.email}
+          </a>
+          <button 
+            class="px-3 py-1 text-sm bg-slate-700/50 text-cyan-400 rounded-md hover:bg-slate-700 transition-colors"
+            onclick={`navigator.clipboard.writeText('${socialLinks.email}')`}
+          >
+            Copiar
+          </button>
+        </li>
+
+        <!-- Instagram -->
+        <li class="flex items-center gap-4">
+          <div class="min-w-[24px]">
+            <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <a 
+            href={`https://instagram.com/${socialLinks.instagram}`} 
+            class="text-gray-300 hover:text-purple-400 transition-colors"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            @{socialLinks.instagram}
+          </a>
+        </li>
+
+        <!-- LinkedIn -->
+        <li class="flex items-center gap-4">
+          <div class="min-w-[24px]">
+            <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <a 
+            href={socialLinks.linkedin.url} 
+            class="text-gray-300 hover:text-blue-400 transition-colors"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            {socialLinks.linkedin.name}
+          </a>
+        </li>
+
+        <!-- GitHub -->
+        <li class="flex items-center gap-4">
+          <div class="min-w-[24px]">
+            <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <a 
+            href={`https://github.com/${socialLinks.github}`} 
+            class="text-gray-300 hover:text-gray-400 transition-colors"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            {socialLinks.github}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+<style>
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 20px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
+  }
+</style>
+
+<script>
+  // Notificación al copiar el email
+  const copyButtons = document.querySelectorAll('button');
+  copyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.textContent = '¡Copiado!';
+      setTimeout(() => {
+        button.textContent = 'Copiar';
+      }, 2000);
+    });
+  });
+</script>

@@ -3,19 +3,21 @@ import projectsData from '../data/projects.js';
 import ProjectItem from './ProjectItem.astro';
 ---
 
-<div class="opacity-20 hover:opacity-100 transition-opacity duration-300 h-full w-full p-4">
+<div class="opacity-20 hover:opacity-100 transition-opacity duration-300 h-full w-full p-4 flex flex-col">
   <h1 class="text-4xl text-left my-5 text-white">Proyectos</h1>
   <p class="text-base mb-4" style="color: var(--color-paragraph)">
-    Quiero presentarte algunos de los proyectos en los que he trabajado.
+    Durante mi traspaso por la universidad, para generar experiencia y aprender, he trabajado en varios proyectos que abarcan desde aplicaciones web hasta herramientas de automatización. Aquí te presento algunos de ellos.
   </p>
-  <div class="flex flex-col gap-6">
-    {projectsData.map(project => (
-      <ProjectItem 
-        name={project.name} 
-        image={project.image} 
-        description={project.description} 
-        repoUrl={project.repoUrl} 
-      />
-    ))}
+  <div class="flex-1 overflow-y-auto pr-2">
+    <div class="flex flex-col gap-6">
+      {projectsData.map(project => (
+        <ProjectItem 
+          name={project.name} 
+          image={project.image} 
+          description={project.description} 
+          repoUrl={project.repoUrl} 
+        />
+      ))}
+    </div>
   </div>
 </div>

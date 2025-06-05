@@ -1,20 +1,24 @@
 ---
-import trajectory from '../data/trayectory';
+import trajectory from '../data/trayectory.js';
 import TrajectoryItem from './TrajectoryItem.astro';
 ---
 
-<div class="h-full w-full flex flex-col items-center justify-center px-2 py-8">
+<div class="h-full w-full flex flex-col items-center justify-center px-2 py-8 opacity-20 hover:opacity-100 transition-opacity duration-300">
   <h1 class="text-4xl font-bold text-center mb-8 text-white">Trayectoria</h1>
   <div class="relative flex-1 min-h-0 overflow-y-auto pr-2">
     <div class="relative h-full overflow-y-auto pr-2">
-      <ul class="space-y-10 relative">
-        {/* Línea vertical dinámica */}
-        <div class="absolute left-6 inset-y-0 w-1 h-full bg-gradient-to-b from-cyan-400/80 to-slate-800 rounded-full z-0"></div>
+      {/* Línea de tiempo con efecto de brillo */}
+      <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400 via-purple-400 to-slate-800 blur-[1px]"></div>
+      <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400 via-purple-400 to-slate-800"></div>
+      
+      <ul class="space-y-8 relative">
         {trajectory.map(item => (
           <TrajectoryItem 
             title={item.title}
             date={item.date}
             description={item.description}
+            type={item.type}
+            icon={item.icon}
           />
         ))}
       </ul>
