@@ -10,24 +10,21 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Portafolio | Escu">
-
-    <main class="grid grid-cols-7 grid-rows-6 gap-4 h-dvh w-full p-4">
-
-        <div class="col-span-2 row-span-6 effect-hover rounded-3xl p-4">
+    <main class="grid grid-cols-1 md:grid-cols-7 grid-rows-none md:grid-rows-6 gap-4 h-dvh w-full p-4">
+        <div class="col-span-1 md:col-span-2 md:row-span-6 effect-hover rounded-3xl p-4 order-3 md:order-none">
             <Trajectory />
         </div>
-        <div class="col-span-3 row-span-2 col-start-3 effect-hover rounded-3xl p-4">
+        <div class="col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 effect-hover rounded-3xl p-4 order-1 md:order-none">
             <AboutMe />
         </div>
-        <div class="col-span-3 row-span-4 col-start-3 row-start-3 effect-hover rounded-3xl p-4">
+        <div class="col-span-1 md:col-span-3 md:row-span-4 md:col-start-3 md:row-start-3 effect-hover rounded-3xl p-4 order-2 md:order-none">
             <Projects />
         </div>
-        <div class="col-span-2 row-span-2 col-start-6 row-start-5 effect-hover rounded-3xl p-4">            
+        <div class="col-span-1 md:col-span-2 md:row-span-2 md:col-start-6 md:row-start-5 effect-hover rounded-3xl p-4 order-5 md:order-none">            
             <ContactMe />
         </div>
-        <div class="col-span-2 row-span-4 col-start-6 row-start-1 effect-hover rounded-3xl p-4">            
+        <div class="col-span-1 md:col-span-2 md:row-span-4 md:col-start-6 md:row-start-1 effect-hover rounded-3xl p-4 order-4 md:order-none">            
             <Skills />
         </div>
     </main>
-        
 </Base>
