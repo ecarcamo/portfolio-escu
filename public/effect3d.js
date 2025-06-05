@@ -24,28 +24,24 @@ function activarEfecto3D() {
 
         contenedor.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
         contenedor.style.boxShadow = '0 0 20px 10px rgba(255, 255, 255, 0.2)';
+        contenedor.classList.remove('opacity-20');
+        contenedor.classList.add('opacity-100');
       };
       contenedor.onmouseleave = () => {
         contenedor.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
         contenedor.style.boxShadow = '0 0 10px 5px rgba(255, 255, 255, 0.1)';
+        contenedor.classList.remove('opacity-20');
+        contenedor.classList.add('opacity-100');
       };
     } else {
       // Limpia cualquier transformación si no es desktop
       contenedor.style.transform = '';
       contenedor.style.boxShadow = '';
+      contenedor.classList.remove('opacity-20');
+      contenedor.classList.add('opacity-100');
     }
   });
 }
 
 window.addEventListener('DOMContentLoaded', activarEfecto3D);
 window.addEventListener('resize', activarEfecto3D);
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.opacity-20').forEach(div => {
-    div.addEventListener('mouseenter', () => {
-      div.classList.remove('opacity-20');
-      div.classList.add('opacity-100');
-    });
-  });
-});
