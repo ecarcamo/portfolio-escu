@@ -1,0 +1,12 @@
+services:
+  portafolio:
+    build:
+      context: .           # carpeta donde está el Dockerfile
+      dockerfile: Dockerfile
+    image: mi_portafolio_astro
+    container_name: portafolio_astro
+    # Dentro del contenedor Nginx escucha en el puerto 80;
+    # aquí lo mapeamos a un puerto libre del host, p. ej. 8080
+    ports:
+      - "8080:80"
+    restart: always
